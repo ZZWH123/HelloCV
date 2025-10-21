@@ -103,7 +103,7 @@ void Menu::textEncryption() {
     // 获取数字密钥（0-255之间的整数）
     int key = getIntInput("请输入数字密钥 (0-255): ");    
     // 调用加密函数进行XOR加密
-    std::string encrypted = Crypto::xorWithNumber(text, key);
+    std::string encrypted = Crypto::XORCipher(text, key);
     // 显示加密结果
     std::cout << "加密结果: " << encrypted << std::endl;
 }
@@ -115,7 +115,7 @@ void Menu::textDecryption() {
     // 获取相同的数字密钥（必须与加密时相同）
     int key = getIntInput("请输入数字密钥: ");
     // XOR加密和解密使用同一个函数！
-    std::string decrypted = Crypto::xorWithNumber(text, key);
+    std::string decrypted = Crypto::XORCipher(text, key);
     // 显示解密结果
     std::cout << "解密结果: " << decrypted << std::endl;
 }
@@ -132,7 +132,7 @@ void Menu::fileEncryption() {
     // 尝试读取文件，FileHandler::readFile返回bool表示成功与否
     if (FileHandler::readFile(inputFile, content)) {
         // 读取成功，进行加密
-        std::string encrypted = Crypto::xorWithNumber(content, key);
+        std::string encrypted = Crypto::XORCipher(content, key);
         
         // 尝试保存加密后的文件
         if (FileHandler::writeFile(outputFile, encrypted)) {
@@ -157,7 +157,7 @@ void Menu::fileDecryption() {
     // 读取加密文件
     if (FileHandler::readFile(inputFile, content)) {
         // 使用相同的XOR函数进行解密
-        std::string decrypted = Crypto::xorWithNumber(content, key);       
+        std::string decrypted = Crypto::XORCipher(content, key);       
         // 保存解密后的文件
         if (FileHandler::writeFile(outputFile, decrypted)) {
             std::cout << "文件解密成功！结果已保存到: " << outputFile << std::endl;
