@@ -2,7 +2,6 @@
 
 int main() {
     Menu menu;
-    menu.showMainMenu();
     menu.handleUserInput();
     return 0;
 }
