@@ -5,8 +5,8 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(CryptoTool 
-    main.cpp
-    Crypto.cpp
-    FileHandler.cpp
-    Menu.cpp
+    src/main.cpp
+    src/Crypto.cpp
+    src/FileHandler.cpp
+    src/Menu.cpp
 )
